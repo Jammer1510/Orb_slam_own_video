@@ -7,7 +7,7 @@
 
 using namespace std;
 
-###need to change
+//need to change to your own path
 string parameterFile = "/home/jammer/Dev/ORB_SLAM3/Examples/Monocular/myvideo.yaml";
 string vocFile = "/home/jammer/Dev/ORB_SLAM3/Vocabulary/ORBvoc.txt";
 string videoFile = "/home/jammer/Dev/ORB_SLAM3/Examples/Monocular/video.mp4";
