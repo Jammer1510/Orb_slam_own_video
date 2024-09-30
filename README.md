@@ -50,3 +50,40 @@ cd ~/Dev/ORB_SLAM3/Examples/Monocular
 ./myvideo
 ```
 
+# ORB_SLAM3 With Webcam
+## Step-by-Step Guide
+
+### 1. : Duplicate Files and Rename
+
+- Copy myvideo.cpp and myvideo.yaml to new files named mywebcam.cpp and mywebcam.yaml:
+  ```bash
+  cd ~/Dev/ORB_SLAM3/Examples/Monocular
+  cp myvideo.cpp mywebcam.cpp
+  cp myvideo.yaml mywebcam.yaml
+  ```
+### 2. : Set Up Camera Parameters
+- copy the code from mywebcam.yaml
+
+### 3. : Modify the Source Code
+- copy the code from mywebcam.cpp
+
+### 4. : CMakeList
+- Add the following lines to the CMakeLists.txt file in the ORB_SLAM3 directory to include the new executable:
+  ```bash
+  add_executable(mywebcam Examples/Monocular/mywebcam.cpp)
+  target_link_libraries(mywebcam ${PROJECT_NAME})
+  ```
+### 5. : Build & Run
+- build it
+```bash
+cd ~/Dev/ORB_SLAM3
+./build.sh
+```
+- after build finished run:
+  ```bash
+  cd ~/Dev/ORB_SLAM3/Examples/Monocular
+  ./mywebcam
+  ```
+
+    
+
