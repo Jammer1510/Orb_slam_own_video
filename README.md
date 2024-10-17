@@ -38,7 +38,6 @@ This tutorial demonstrates how to run ORB-SLAM3 on your own video file for monoc
     target_link_libraries(myvideo ${PROJECT_NAME})
   ```
 ## 5. Build 
- - If you have already compile, need to remove build folder from root and also three build in thirdparty folder
  - Then just build the project.
   ```bash
   chmod +x build.sh
