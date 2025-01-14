@@ -1,0 +1,32 @@
+%YAML:1.0
+
+# Camera Parameters
+Camera.fx: 616.365
+Camera.fy: 616.202
+Camera.cx: 315.87
+Camera.cy: 239.234
+
+Camera.k1: -0.04368
+Camera.k2: 0.045558
+Camera.p1: -0.00023
+Camera.p2: 0.000034
+
+# Stereo Baseline in meters
+Camera.bf: 0.05
+
+# Camera Resolution
+Camera.width: 640
+Camera.height: 480
+
+# Frames per second
+Camera.fps: 30.0
+
+# Color order of the images
+Camera.RGB: 1
+
+# ORB Parameters
+ORBextractor.nFeatures: 1000
+ORBextractor.scaleFactor: 1.2
+ORBextractor.nLevels: 8
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
