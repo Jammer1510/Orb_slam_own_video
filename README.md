@@ -87,9 +87,9 @@ cd ~/Dev/ORB_SLAM3
 ```
 ### Add executable into CMakeList
 # Add the mystereo executable
-```
-add_executable(mystereo Examples/Stereo/stereo_orbslam3.cpp)
+
+```bash
+    add_executable(mystereo Examples/Stereo/stereo_orbslam3.cpp)
 target_link_libraries(mystereo ${PROJECT_NAME})
-```
-    
+```    
 
