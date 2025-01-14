@@ -83,12 +83,7 @@ cd ~/Dev/ORB_SLAM3
   cd ~/Dev/ORB_SLAM3/Examples/Monocular
   ./mywebcam
   ```
-### Compile for the Sterro w/ realsense d435i
-```
-g++ -std=c++17 stereo_orbslam3.cpp -o stereo_orbslam3 \
-    -I/usr/include/opencv4 -lopencv_core -lopencv_highgui -lopencv_imgproc \
-    -lopencv_calib3d -lopencv_features2d -lopencv_videoio \
-    -L/usr/local/lib -lrealsense2 -pthread
+
 ```
 ### Add executable into CMakeList
 ```
