@@ -5,7 +5,7 @@
 #--------------------------------------------------------------------------------------------
 Camera.type: "PinHole"
 
-# Camera calibration and distortion parameters (example values; modify based on your camera's calibration)
+# Camera calibration and distortion parameters (adjust these based on actual calibration)
 Camera.fx: 600.0
 Camera.fy: 600.0
 Camera.cx: 320.0
@@ -21,27 +21,61 @@ Camera.p2: 0.0
 Camera.width: 640
 Camera.height: 480
 
-# Camera frames per second 
+# Camera frames per second
 Camera.fps: 15
 
-# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+# Color order of the images (0: BGR, 1: RGB. Ignored if grayscale)
 Camera.RGB: true
 
 #--------------------------------------------------------------------------------------------
-# ORB Parameters
+# ORB Parameters (Feature Extraction Optimizations)
 #--------------------------------------------------------------------------------------------
-# ORB Extractor: Number of features per image
-ORBextractor.nFeatures: 1000
 
-# ORB Extractor: Scale factor between levels in the scale pyramid
-ORBextractor.scaleFactor: 1.2
+# ORB Extractor: Number of features per image (Increased for better tracking)
+ORBextractor.nFeatures: 2500
 
-# ORB Extractor: Number of levels in the scale pyramid
-ORBextractor.nLevels: 8
+# ORB Extractor: Scale factor between levels in the scale pyramid (Reduced for finer details)
+ORBextractor.scaleFactor: 1.1
 
-# ORB Extractor: Fast threshold
-ORBextractor.iniThFAST: 20
-ORBextractor.minThFAST: 7
+# ORB Extractor: Number of levels in the scale pyramid (Increased for multi-scale detection)
+ORBextractor.nLevels: 10
+
+# ORB Extractor: Fast threshold (Lowered for better feature detection in low-light)
+ORBextractor.iniThFAST: 10
+ORBextractor.minThFAST: 5
+
+#--------------------------------------------------------------------------------------------
+# Loop Closure Detection Optimization
+#--------------------------------------------------------------------------------------------
+
+LoopClosing:
+  # Increase the keyframe queue size for better loop closure detection
+  KeyFrameQueueSize: 50
+
+  # Reduce threshold score to make loop detection more sensitive
+  ThresholdScore: 0.2
+
+  # Increase iterations for better global optimization
+  BAIterations: 10
+
+#--------------------------------------------------------------------------------------------
+# Relocalization Robustness
+#--------------------------------------------------------------------------------------------
+
+Relocalization:
+  # Minimum number of common words to match for relocalization (Lower allows more flexible matching)
+  MinCommonWords: 10
+
+  # Maximum number of candidates to check for relocalization
+  MaxCandidates: 5
+
+#--------------------------------------------------------------------------------------------
+# Keyframe Optimization
+#--------------------------------------------------------------------------------------------
+
+KeyFrame:
+  # Increase observations required for loop closure to reduce false positives
+  MinObservationsForLoop: 5
 
 #--------------------------------------------------------------------------------------------
 # Viewer Parameters
@@ -56,4 +90,3 @@ Viewer.ViewpointX: 0.0
 Viewer.ViewpointY: -0.7
 Viewer.ViewpointZ: -3.5
 Viewer.ViewpointF: 500.0
-
