@@ -34,8 +34,8 @@ int main(int argc, char **argv) {
 
     // Open the webcam
     cv::VideoCapture cap(0);  // Use 0 for the default webcam
-    cap.set(cv::CAP_PROP_FRAME_WIDTH, 1280);  // Increased resolution
-    cap.set(cv::CAP_PROP_FRAME_HEIGHT, 960);
+    cap.set(cv::CAP_PROP_FRAME_WIDTH, 640);  // Set resolution
+    cap.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
     cap.set(cv::CAP_PROP_FPS, 15);  // Set FPS
 
     if (!cap.isOpened()) {
@@ -48,10 +48,6 @@ int main(int argc, char **argv) {
 
     auto start = chrono::system_clock::now();
     double last_timestamp = -1.0;
-
-    // Create a resizable OpenCV window
-    cv::namedWindow("ORB-SLAM3: Larger Viewer", cv::WINDOW_NORMAL);
-    cv::resizeWindow("ORB-SLAM3: Larger Viewer", 1280, 960);  // Set initial window size
 
     while (!stopSLAM) {
         cv::Mat frame;
@@ -74,11 +70,7 @@ int main(int argc, char **argv) {
 
         // Pass the frame to ORB-SLAM3
         SLAM.TrackMonocular(frame, current_timestamp);
-        
-        // Display the frame in the larger window
-        cv::imshow("ORB-SLAM3: Larger Viewer", frame);
-
-        if (cv::waitKey(1) == 27) break;  // Press 'ESC' to exit
+        cv::waitKey(1);  // Adjust delay for smoother display
     }
 
     // Shutdown the SLAM system
@@ -93,3 +85,4 @@ int main(int argc, char **argv) {
 
     return 0;
 }
+
